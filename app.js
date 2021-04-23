@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const config = require('./config/config');
 
-const url = 'mongodb+srv://usuario_admin:66rsft57PJzcqzUd@clusterapi.bli3n.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const url = config.bd_string;
 const options = { reconnectTries: Number.MAX_VALUE, reconnectInterval: 500, poolSize: 5, useNewUrlParser: true };
 
 mongoose.connect(url, options);
