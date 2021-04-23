@@ -34,11 +34,7 @@ jobs:
       run: npm ci
 
     - name: Run all tests
-      run: yarn test
-
-    - shell: bash
-      name: Permission for script
-      run: git update-index --chmod=+x scripts/deploy.sh
+      run: npm test
 
     - shell: bash
       if: github.ref == 'refs/heads/main'
