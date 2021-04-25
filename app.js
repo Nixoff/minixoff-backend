@@ -2,6 +2,18 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const config = require('./config/config');
+const cors = require('cors')
+
+
+// HABILITANDO CORS
+
+const corsOptions = {
+  origin: '*',
+  optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
+
+// HABILITANDO CORS
 
 const url = config.bd_string;
 const options = { reconnectTries: Number.MAX_VALUE, reconnectInterval: 500, poolSize: 5, useNewUrlParser: true };
