@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const Shortners = require('../model/shortner')
 
 const site = 'minix.gq/';
 
@@ -24,4 +25,28 @@ router.post('/new', (req,res,next)=>{
     res.send(site + code)
 })
 
+
+
+
+
+
+
+
+router.post('/create', async (req, res) => {
+    const { code, url, hits, created } = req.body;
+    // if (!code || !url || !hits ) return res.status(400).send({ error: 'Dados insuficientes!'});
+
+    try {
+        if(await Shortners.findOne({ code })) return res.status(400).send({ error: 'URL encurtada já registrado!'});
+
+        const shortner = await Shortners.create(req.body);
+        shortner.url = undefined;
+
+        return res.status(201).send({shortner});
+
+    } 
+    catch (err) {
+        return res.status(500).send({ error: 'Erro ao buscar url encurtada!' });
+    }
+});
 module.exports = router;
