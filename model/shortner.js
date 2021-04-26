@@ -12,10 +12,9 @@ const ShortnerSchema = new Schema({
 
 module.exports = mongoose.model('Shortner', ShortnerSchema);
 
-const Shortner = mongoose.model('Shortner')
+//const Shortner = mongoose.model('Shortner')
 
-
-new Shortner({
+/* new Shortner({
     code: "V7Pv3CrfVPb",
     url: "https://www.youtube.com/c/GuiadoProgramador/videos",
     hits: null,
@@ -25,3 +24,4 @@ new Shortner({
 }).catch((err) => {
     console.error("Houve um erro ao encurtar o url."+ err)
 })
+*/
