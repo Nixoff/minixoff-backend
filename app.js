@@ -38,9 +38,12 @@ app.use(express.json());
 
 const indexRoute = require('./Routes/index');
 const usersRoute = require('./Routes/users');
+const shortnerRoute = require('./Routes/shortner');
 
 app.use('/', indexRoute);
 app.use('/users', usersRoute);
+app.use('/shortner', shortnerRoute);
+
 
 app.listen(3000);
 
